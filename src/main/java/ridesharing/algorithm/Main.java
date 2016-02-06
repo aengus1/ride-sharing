@@ -73,15 +73,22 @@ public class Main {
         if(clArgs.containsKey("s")){
             nSearchIterations = Integer.parseInt(clArgs.get("s"));
         }
+        
+        //6. run algorithm
         Solver solver = new Solver(tripRequests, matrix, beta, gamma, capacity, nIterations, nSearchIterations);
         List<Vehicle> result = solver.solve();
 
+        //7. print output
         for (Vehicle v : result) {
             System.out.println("Itinerary for vehicle " + v.getVehicleId() + ":");
             System.out.println(v.getItinerary());
         }
+        
+        //8. write output
         if(clArgs.containsKey("output")){
+            
             String output = clArgs.get("output");
+            System.out.println("writing output: " + output);
             File fo = new File(output);
             FileWriter fw = null;
             try {
@@ -90,6 +97,7 @@ public class Main {
                     fw.write("Itinerary for vehicle " + r.getVehicleId() + ":\n");
                     fw.write(r.getItinerary());
                 }
+                fw.write("\n");
             } catch (IOException ex) {
                 exitWithException("An error occurred attempting to write output file to: " + output);                
             }finally{
@@ -135,7 +143,7 @@ public class Main {
             String arg = args[i];
             if (arg.startsWith("--")) {
                 arg = arg.replaceAll("--", "");
-                if (args.length < i + 1 && !args[i + 1].startsWith("--")) {
+                if (args.length >= i + 1 && !args[i + 1].startsWith("--")) {
                     result.put(arg, args[i + 1]);
                 }
             }
