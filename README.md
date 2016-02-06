@@ -18,10 +18,11 @@ mvn install
 java –jar target/ride-sharing.jar <path_to_input_file>
 
 Options:
---outputfile <path to output file>
---capacity <passenger capacity of vehicle>
---i  <number of iterations>
---s <number of search iterations>
---beta <number of candidate insertion points to consider>
---gamma <level of randomization in trip request selection>
+--outputfile path_to_output_file
+--capacity passenger_capacity_of_vehicle
+--i  number_of_iterations
+--s number_of_search_iterations
+--beta number_of_candidate_insertion_points_to_consider
+--gamma level_of_randomization_in_trip_request_selection
+--help print_usage
 
