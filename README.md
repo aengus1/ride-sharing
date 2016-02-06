@@ -26,3 +26,9 @@ Options:
 --gamma level_of_randomization_in_trip_request_selection
 --help print_usage
 
+# 4.0 Author
+Aengus McCullough
+
+# 5.0 License
+  GPL v3.0
+
